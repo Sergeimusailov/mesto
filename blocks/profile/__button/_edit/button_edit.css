@@ -4,3 +4,10 @@
   height: 24px;
   border: 1px solid #fff;
 }
+
+@media screen and (max-width: 768px) {
+  .button_edit {
+    width: 18px;
+    height: 18px;
+  }
+}

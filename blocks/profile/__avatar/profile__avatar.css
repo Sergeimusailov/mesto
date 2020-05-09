@@ -6,3 +6,9 @@
   background-image: url(../../../images/kusto.jpg);
   background-size: contain;
 }
+
+@media screen and (max-width: 768px) {
+  .profile__avatar {
+    margin-right: 0;
+  }
+}
