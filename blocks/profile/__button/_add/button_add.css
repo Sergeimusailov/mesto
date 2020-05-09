@@ -4,3 +4,10 @@
   border: 2px solid #fff;
   border-radius: 2px;
 }
+
+@media screen and (max-width: 768px) {
+  .button_add {
+    margin-top: 36px;
+    width: 100%;
+  }
+}

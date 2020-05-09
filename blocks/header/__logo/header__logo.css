@@ -6,3 +6,12 @@
   background-repeat: no-repeat;
   padding-bottom: 40px;
 }
+
+@media screen and (max-width: 768px) {
+  .header__logo {
+    width: 104px;
+    height: 24px;
+    margin-left: 27px;
+    padding-bottom: 31px;
+  }
+}

@@ -7,3 +7,16 @@
   max-width: 882px;
   border-bottom: 1px solid rgba(84, 84, 84, .7);
 }
+
+@media screen and (max-width: 1024px) {
+  .header {
+    max-width: calc(100% - 64px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    max-width: 100%;
+    margin-top: 28px;
+  }
+}
