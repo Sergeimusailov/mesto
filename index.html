@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <link rel="stylesheet" href="./pages/index.css">
   <script src="./script/script.js"></script>
@@ -7,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto · Russia</title>
 </head>
+
 <body class="body">
   <main class="page">
 
@@ -15,11 +17,17 @@
     </header>
 
     <section class="profile">
-      <div class="profile__avatar"></div>
-      <div class="profile__info">
-        <h1 class="profile__title">Жак-Ив Кусто</h1>
-        <p class="profile__subtitle">Исследователь океана</p>
-        <button class="profile__edit-button"></button>
+      <div class="profile__main">
+        <div class="profile__avatar"></div>
+        <div class="profile__info">
+          <div class="profile__edit-title">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button class="profile__edit-button">
+              <img src="./images/edit-icon.svg" alt="редактировать" class="profile__icon">
+            </button>
+          </div>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
       </div>
       <button class="profile__add-button"></button>
     </section>
@@ -40,4 +48,5 @@
 
   </main>
 </body>
+
 </html>
