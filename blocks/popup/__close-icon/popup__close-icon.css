@@ -12,3 +12,10 @@
 .popup__close-icon:hover {
   opacity: .6;
 }
+
+@media screen and (max-width: 560px) {
+  .popup__close-icon {
+    top: -48px;
+    right: 0;
+  }
+}
