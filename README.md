@@ -12,3 +12,7 @@
 * HTML
 * CSS
 * JavaScript
+
+## Ссылка на проект
+
+https://sergeimusailov.github.io/mesto/
