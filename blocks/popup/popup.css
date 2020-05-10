@@ -3,6 +3,7 @@
 @import url(./__close-icon/popup__close-icon.css);
 @import url(./__title/popup__title.css);
 @import url(./__field/popup__field.css);
+@import url(./__form/popup__form.css);
 
 .popup {
   position: fixed;
