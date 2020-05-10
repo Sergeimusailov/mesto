@@ -1,7 +1,9 @@
 // Сценарий открытия/закрытия попапа
 const buttonEdit = document.querySelector('.profile__button_edit');
 const popup = document.querySelector('.popup');
-const buttonClose = document.querySelector('.popup__close-icon');
+const buttonClose = document.querySelector('.popup__close-button');
+let nameInput = document.querySelector('#heading');
+let jobInput = document.querySelector('#subheading');
 
 buttonEdit.addEventListener('click', function() {
   popup.classList.add('popup_opened');
@@ -20,10 +22,6 @@ let profileSubtitle = document.querySelector('.profile__subtitle');
 let formElement = document.querySelector('.popup__form');
 function formSubmitHandler (evt) {
     evt.preventDefault();
-
-    let nameInput = document.querySelector('#heading');
-    let jobInput = document.querySelector('#subheading');
-
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value;
 };
