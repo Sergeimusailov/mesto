@@ -16,21 +16,19 @@
     </header>
 
     <section class="profile">
-      <div class="profile__main">
-        <div class="profile__avatar"></div>
+      <div class="profile__avatar"></div>
+      <div class="profile__info-panel">
         <div class="profile__info">
-          <div class="profile__edit-title">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__button profile__button_edit">
-              <img class="profile__icon-edit" src="./images/edit-icon.svg" alt="редактировать" >
-            </button>
-          </div>
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__button profile__button_edit">
+            <img class="profile__icon-edit" src="./images/edit-icon.svg" alt="редактировать">
+          </button>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
+        <button class="profile__button profile__button_add">
+          <img src="./images/add-icon.svg" alt="добавить" class="profile__icon-add">
+        </button>
       </div>
-      <button class="profile__button profile__button_add">
-        <img src="./images/add-icon.svg" alt="добавить" class="profile__icon-add">
-      </button>
     </section>
 
     <section class="elements">
@@ -94,9 +92,10 @@
         <p class="popup__title">Редактировать профиль</p>
         <form class="popup__form">
           <input type="text" id="heading" name="heading" class="popup__field" value="Жак-Ив Кусто"></input>
-          <input type="text" id="subheading" name="subheading" class="popup__field" value="Исследователь океана"></input>
+          <input type="text" id="subheading" name="subheading" class="popup__field"
+            value="Исследователь океана"></input>
           <button class="popup__button" type="submit">Сохранить</button>
-      </form>
+        </form>
 
         <div class="popup__close-icon"></div>
       </div>
@@ -105,4 +104,24 @@
   </main>
 </body>
 <script src="./script/script.js"></script>
+
 </html>
+
+<!--
+<section class="profile">
+  <div class="profile__main">
+    <div class="profile__avatar"></div>
+    <div class="profile__info">
+      <div class="profile__edit-title">
+        <h1 class="profile__title">Жак-Ив Кусто</h1>
+        <button class="profile__button profile__button_edit">
+          <img class="profile__icon-edit" src="./images/edit-icon.svg" alt="редактировать" >
+        </button>
+      </div>
+      <p class="profile__subtitle">Исследователь океана</p>
+    </div>
+  </div>
+  <button class="profile__button profile__button_add">
+    <img src="./images/add-icon.svg" alt="добавить" class="profile__icon-add">
+  </button>
+</section> -->
