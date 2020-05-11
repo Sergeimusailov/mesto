@@ -3,11 +3,16 @@
   height: 50px;
   border: 2px solid #fff;
   border-radius: 2px;
+  background-image: url('../../../../images/add-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 22px 22px;
 }
 
 @media screen and (max-width: 768px) {
   .profile__button_add {
     margin-top: 28px;
     width: 100%;
+    background-size: 16px 16px;
   }
 }

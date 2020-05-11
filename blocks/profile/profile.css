@@ -1,11 +1,9 @@
-@import url(./__avatar/profile__avatar.css);
-@import url(./__info-panel/profile__info-panel.css);
-@import url(./__icon-edit/profile__icon-edit.css);
-@import url(./__icon-add/profile__icon-add.css);
-@import url(./__info/profile__info.css);
-@import url(./__subtitle/profile__subtitle.css);
-@import url(./__title/profile__title.css);
-@import url(./__button/profile__button.css);
+@import url('./__avatar/profile__avatar.css');
+@import url('./__info-panel/profile__info-panel.css');
+@import url('./__info/profile__info.css');
+@import url('./__subtitle/profile__subtitle.css');
+@import url('./__title/profile__title.css');
+@import url('./__button/profile__button.css');
 
 .profile {
   margin: 0 auto;
