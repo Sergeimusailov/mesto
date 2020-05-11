@@ -11,6 +11,6 @@
   transition: all 200ms ease-in-out;
 }
 
-.elements__like-button:hover {
+.element__like-button:hover {
   opacity: .6;
 }
