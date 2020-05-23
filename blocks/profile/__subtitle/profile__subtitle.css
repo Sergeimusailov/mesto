@@ -7,6 +7,10 @@
   font-size: 18px;
   line-height: 1.222;
   font-weight: 400;
+  max-width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 
