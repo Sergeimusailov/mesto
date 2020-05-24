@@ -29,57 +29,7 @@
       </div>
     </section>
 
-    <ul class="elements">
-
-      <li class="element">
-        <img src="./images/angelica-sabina-rosa-hutor.jpg" alt="Роза Хутор" class="element__cover">
-        <div class="element__info">
-          <h2 class="element__title">Роза Хутор</h2>
-          <button type="button" class="element__like-button"></button>
-        </div>
-      </li>
-
-      <li class="element">
-        <img src="./images/daniil-silantev-kamchatka.jpg" alt="камчатка" class="element__cover">
-        <div class="element__info">
-          <h2 class="element__title">Камчатка</h2>
-          <button type="button" class="element__like-button"></button>
-        </div>
-      </li>
-
-      <li class="element">
-        <img src="./images/ekaterina-sazonova-olhon.jpg" alt="Ольхон" class="element__cover">
-        <div class="element__info">
-          <h2 class="element__title">Ольхон</h2>
-          <button type="button" class="element__like-button"></button>
-        </div>
-      </li>
-
-      <li class="element">
-        <img src="./images/mikhail-vasilyev-tulinovka.jpg" alt="Тилуновка" class="element__cover">
-        <div class="element__info">
-          <h2 class="element__title">Тилуновка</h2>
-          <button type="button" class="element__like-button"></button>
-        </div>
-      </li>
-
-      <li class="element">
-        <img src="./images/philipp-trubchenko-baikal.jpg" alt="Байкал" class="element__cover">
-        <div class="element__info">
-          <h2 class="element__title">Байкал</h2>
-          <button type="button" class="element__like-button"></button>
-        </div>
-      </li>
-
-      <li class="element">
-        <img src="./images/sergey-pesterev-ogoy.jpg" alt="Остров Огой" class="element__cover">
-        <div class="element__info">
-          <h2 class="element__title">Остров Огой</h2>
-          <button type="button" class="element__like-button"></button>
-        </div>
-      </li>
-
-    </ul>
+    <ul class="elements"></ul>
 
     <footer class="footer">
       <p class="footer__info">&copy; 2020 Mesto Russia</p>
@@ -97,7 +47,31 @@
       </div>
     </div>
 
+    <div class="popup-add">
+      <div class="popup__container">
+        <p class="popup__title">Новое место</p>
+        <form class="popup__form">
+          <input type="text" id="heading-add" name="heading-add" class="popup__field" placeholder="Название">
+          <input type="url" id="link" name="link" class="popup__field" placeholder="Ссылка на картинку">
+          <button class="popup__button" type="submit">Сохранить</button>
+          <button type="reset" class="popup-add__close-button"></button>
+        </form>
+      </div>
+    </div>
+
   </main>
+
+<template id="element-template">
+  <li class="element">
+    <img class="element__cover">
+    <div class="element__info">
+      <h2 class="element__title"></h2>
+      <button type="button" class="element__like-button"></button>
+    </div>
+  </li>
+</template>
+
+  <script src="./vendor/script.js"></script>
+
 </body>
-<script src="./vendor/script.js"></script>
 </html>
