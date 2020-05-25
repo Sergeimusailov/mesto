@@ -47,14 +47,14 @@
       </div>
     </div>
 
-    <div class="popup-add">
+    <div class="popup popup_add">
       <div class="popup__container">
         <p class="popup__title">Новое место</p>
-        <form class="popup__form">
-          <input type="text" id="heading-add" name="heading-add" class="popup__field" placeholder="Название">
-          <input type="url" id="link" name="link" class="popup__field" placeholder="Ссылка на картинку">
-          <button class="popup__button" type="submit">Сохранить</button>
-          <button type="reset" class="popup-add__close-button"></button>
+        <form class="popup__form popup__form_add">
+          <input type="text" class="popup__field popup__field_add_title" placeholder="Название">
+          <input type="url" class="popup__field popup__field_add_link" placeholder="Ссылка на картинку">
+          <button class="popup__button popup__button_add" type="submit">Сохранить</button>
+          <button type="reset" class="popup__close-button popup__close-button_add"></button>
         </form>
       </div>
     </div>
@@ -64,6 +64,7 @@
 <template id="element-template">
   <li class="element">
     <img class="element__cover">
+    <button class="element__remove"type="button"></button>
     <div class="element__info">
       <h2 class="element__title"></h2>
       <button type="button" class="element__like-button"></button>
@@ -71,7 +72,6 @@
   </li>
 </template>
 
-  <script src="./vendor/script.js"></script>
-
+<script src="./vendor/script.js"></script>
 </body>
 </html>

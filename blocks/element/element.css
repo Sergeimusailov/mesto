@@ -2,8 +2,10 @@
 @import url('./__info/element__info.css');
 @import url('./__like-button/element__like-button.css');
 @import url('./__title/element__title.css');
+@import url('./__remove/element__remove.css');
 
 .element {
+  position: relative;
   min-height: 361px;
   overflow: hidden;
   background-color: #ffffff;

@@ -1,16 +1,25 @@
+//редактирование профиля
 const buttonEdit = document.querySelector('.profile__button_edit');
-const popup = document.querySelector('.popup');
 const buttonClose = document.querySelector('.popup__close-button');
-const buttonAddClose = document.querySelector('.popup-add__close-button');
-const popupAdd = document.querySelector('.popup-add');
-const buttonAdd = document.querySelector('.profile__button_add');
+const popup = document.querySelector('.popup');
 const elementsContainer = document.querySelector('.elements');
 
-let nameInput = document.querySelector('#heading');
-let jobInput = document.querySelector('#subheading');
-let profileTitle = document.querySelector('.profile__title');
-let profileSubtitle = document.querySelector('.profile__subtitle');
-let formElement = document.querySelector('.popup__form');
+const nameInput = document.querySelector('#heading');
+const jobInput = document.querySelector('#subheading');
+const profileTitle = document.querySelector('.profile__title');
+const profileSubtitle = document.querySelector('.profile__subtitle');
+const formElement = document.querySelector('.popup__form');
+
+//добавление карточки
+const buttonAddClose = document.querySelector('.popup__close-button_add');
+const popupAdd = document.querySelector('.popup_add');
+const elementTemplate = document.querySelector('#element-template').content;
+const buttonAddCard = document.querySelector('.popup__button_add');
+
+//переменные для добавления карточки
+const buttonAdd = document.querySelector('.profile__button_add');
+const formAddElement = document.querySelector('.popup__form_add'); //ссылка на форму
+
 
 const initialCards = [
   {
@@ -18,8 +27,8 @@ const initialCards = [
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
   },
   {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+      name: 'Тулиновка',
+      link: './images/mikhail-vasilyev-tulinovka.jpg'
   },
   {
       name: 'Иваново',
@@ -47,11 +56,11 @@ buttonEdit.addEventListener('click', function() {
 });
 
 function popupClose() {
-  popup.classList.remove('popup_opened');
+  popup.classList.toggle('popup_opened');
 };
 buttonClose.addEventListener('click', popupClose);
 
-function formSubmitHandler (evt) {
+function formSubmitHandler(evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value;
@@ -59,22 +68,32 @@ function formSubmitHandler (evt) {
 };
 formElement.addEventListener('submit', formSubmitHandler);
 
-//попап добавление фотографии
-buttonAdd.addEventListener('click', function() {
-  popupAdd.classList.add('popup-add_opened');
-});
-
 function popupAddClose() {
-  popupAdd.classList.remove('popup-add_opened');
+  popupAdd.classList.toggle('popup_opened');
 };
 buttonAddClose.addEventListener('click', popupAddClose);
 
-//добавление карточек
-for (let i = 0; i < initialCards.length; i++) {
-  const elementTemplate = document.querySelector('#element-template').content;
+//автоматичеески добавляем карточки
+function addCard (name, link) {
   const element = elementTemplate.cloneNode(true);
-
-  element.querySelector('.element__cover').src = initialCards[i].link;
-  element.querySelector('.element__title').textContent = initialCards[i].name;
+  element.querySelector('.element__cover').src = link;
+  element.querySelector('.element__title').textContent = name;
   elementsContainer.append(element);
-};
+}
+
+initialCards.forEach( function(item){
+  addCard(item.name, item.link)
+});
+
+//попап добавление фотографии
+buttonAdd.addEventListener('click', function() {
+  popupAdd.classList.add('popup_opened');
+});
+
+// функция добавления новой карточки
+const titleInput = document.querySelector('.popup__field_add_title');
+const linkInput = document.querySelector('.popup__field_add_link');
+const element = elementTemplate.cloneNode(true);
+element.querySelector('.element__cover').src = linkInput.value;
+element.querySelector('.element__title').textContent = titleInput.value;
+elementsContainer.prepend(element);
