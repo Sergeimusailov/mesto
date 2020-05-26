@@ -108,10 +108,17 @@ function popupAddClose() {
 buttonAddClose.addEventListener('click', popupAddClose);
 
 //удалить карточку
+function deleteCard() {
+  if(event.target.classList.contains('element__remove')){
+    event.target.closest('.element').remove();
+  }
+}
+document.querySelector('.elements').addEventListener('click', deleteCard);
 
-
-// const removeButton = document.querySelector('.element__remove');
-// removeButton.addEventListener('click', function(){
-//   const cardList = document.querySelector('.element');
-//   cardList.remove();
-// });
+//поставить лайк карточке
+function like(evt) {
+  if(event.target.classList.contains('element__like-button')) {
+    evt.target.classList.toggle('element__like-button_active');
+  }
+}
+document.querySelector('.elements').addEventListener('click', like);
