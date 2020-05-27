@@ -1,0 +1,8 @@
+.popup-preview__container {
+  position: relative;
+  max-width: 75vw;
+  max-height: 75vw;
+  object-fit: cover;
+  flex-direction: column;
+  align-items: center;
+}
