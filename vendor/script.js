@@ -119,7 +119,6 @@ document.querySelector('.elements').addEventListener('click', like);
 const popupPreview = document.querySelector('.popup-preview');
 
 function showPreview(evt) {
-  console.log(evt);
   if(event.target.classList.contains('element__cover')) {
     const imageUrl = evt.target;
     const item = evt.target.parentElement;
