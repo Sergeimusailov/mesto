@@ -130,3 +130,8 @@ function showPreview(evt) {
   }
 }
 document.querySelector('.elements').addEventListener('click', showPreview);
+
+// закрыть попап-превью карточки
+document.querySelector('.popup-preview__close-button').addEventListener('click', function() {
+  popupPreview.classList.toggle('popup_opened');
+});
