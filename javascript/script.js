@@ -15,7 +15,7 @@ const formElement = document.querySelector('.popup__form_edit');
 const buttonAddClose = document.querySelector('.popup__close-button_add');
 const popupAdd = document.querySelector('.popup_add');
 const elementTemplate = document.querySelector('#element-template').content;
-const addCardButton = document.querySelector('.popup__button_add');
+const formAdd = document.querySelector('.popup__form_add');
 
 //попап редактирование
 buttonEdit.addEventListener('click', function() {
@@ -55,8 +55,14 @@ function addCard (element, elementsContainer) {
   elementsContainer.prepend(element);
 }
 
+// закрыть попап добавления новой карточки
+function popupAddClose() {
+  popupAdd.classList.toggle('popup_opened');
+};
+buttonAddClose.addEventListener('click', popupAddClose);
+
 // добавить новую карточку по кнопке «сохранить»
-addCardButton.addEventListener('click', function(evt){
+formAdd.addEventListener('submit', function(evt){
   evt.preventDefault();
   const title = document.querySelector('.popup__field_add_title');
   const link = document.querySelector('.popup__field_add_link');
@@ -70,12 +76,6 @@ addCardButton.addEventListener('click', function(evt){
 buttonAdd.addEventListener('click', function() {
   popupAdd.classList.add('popup_opened');
 });
-
-// закрыть попап добавления новой карточки
-function popupAddClose() {
-  popupAdd.classList.toggle('popup_opened');
-};
-buttonAddClose.addEventListener('click', popupAddClose);
 
 //удалить карточку
 function deleteCard() {
