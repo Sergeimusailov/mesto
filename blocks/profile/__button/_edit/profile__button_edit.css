@@ -9,7 +9,7 @@
   background-size: 10px 10px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .profile__button_edit {
     margin-top: 10px;
     width: 18px;
