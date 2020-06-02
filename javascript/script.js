@@ -45,11 +45,11 @@ function createCard (name, link) {
   const element = elementTemplate.cloneNode(true);
   const elementCover = element.querySelector('.element__cover');
 
-  //поставить лайк карточке
+  // кнопка лайка
   const likeButton = element.querySelector('.element__like-button');
   likeButton.addEventListener('click', () => likeButton.classList.toggle('element__like-button_active'));
 
-  // удалить карточку
+  // кнопка удалить
   const deleteButton = element.querySelector('.element__remove');
   deleteButton.addEventListener('click', () => deleteButton.closest('.element').remove());
 
@@ -72,18 +72,18 @@ function createCard (name, link) {
 }
 
 // перебираем массив карточек
-initialCards.forEach( function(item) {
-  getCard(item.name, item.link)
+initialCards.forEach( (item) => {
+  renderCard(item.name, item.link)
 });
 
-// добавление карточек в контейнер
-function addCard (element, elementsContainer) {
-  elementsContainer.prepend(element);
-}
-
-function getCard (name, link) {
+function renderCard (name, link) {
   const element = createCard(name, link);
   addCard(element, elementsContainer);
+}
+
+// добавить карточки в контейнер
+function addCard (element, elementsContainer) {
+  elementsContainer.prepend(element);
 }
 
 // закрыть попап добавления новой карточки
@@ -97,7 +97,7 @@ formAdd.addEventListener('submit', function(evt){
   evt.preventDefault();
   const title = document.querySelector('.popup__field_add_title');
   const link = document.querySelector('.popup__field_add_link');
-  getCard(title.value, link.value);
+  renderCard(title.value, link.value);
   popupAddClose();
   title.value = ""; //сбросить поля ввода
   link.value = ""; //сбросить поля ввода
