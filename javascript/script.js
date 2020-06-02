@@ -40,7 +40,7 @@ function formSubmitHandler(evt) {
 };
 formElement.addEventListener('submit', formSubmitHandler);
 
-// добавить карточки из массива при загрузке страницы
+// собираем карточку и наполняем её данными
 function createCard (name, link) {
   const element = elementTemplate.cloneNode(true);
   const elementCover = element.querySelector('.element__cover');
@@ -68,14 +68,22 @@ function createCard (name, link) {
   elementCover.src = link; // передаём значение src для изображения
   elementCover.setAttribute('alt', name); // передаём значение alt для изображения
   element.querySelector('.element__title').textContent = name;
-  return addCard(element, elementsContainer);
+  return element;
 }
+
+// перебираем массив карточек
 initialCards.forEach( function(item) {
-  createCard(item.name, item.link)
+  getCard(item.name, item.link)
 });
 
+// добавление карточек в контейнер
 function addCard (element, elementsContainer) {
   elementsContainer.prepend(element);
+}
+
+function getCard (name, link) {
+  const element = createCard(name, link);
+  addCard(element, elementsContainer);
 }
 
 // закрыть попап добавления новой карточки
@@ -89,7 +97,7 @@ formAdd.addEventListener('submit', function(evt){
   evt.preventDefault();
   const title = document.querySelector('.popup__field_add_title');
   const link = document.querySelector('.popup__field_add_link');
-  createCard(title.value, link.value);
+  getCard(title.value, link.value);
   popupAddClose();
   title.value = ""; //сбросить поля ввода
   link.value = ""; //сбросить поля ввода
