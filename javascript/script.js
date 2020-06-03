@@ -71,11 +71,6 @@ function createCard (name, link) {
   return element;
 }
 
-// перебираем массив карточек
-initialCards.forEach( (item) => {
-  renderCard(item.name, item.link)
-});
-
 function renderCard (name, link) {
   const element = createCard(name, link);
   addCard(element, elementsContainer);
@@ -111,4 +106,9 @@ buttonAdd.addEventListener('click', function() {
 // закрыть попап-превью карточки
 document.querySelector('.popup-preview__close-button').addEventListener('click', function() {
   popupPreview.classList.toggle('popup_opened');
+});
+
+// перебираем массив карточек
+initialCards.forEach( (item) => {
+  renderCard(item.name, item.link)
 });
