@@ -38,11 +38,17 @@
     <div class="popup popup_edit">
       <div class="popup__container">
         <p class="popup__title">Редактировать профиль</p>
-        <form class="popup__form popup__form_edit" name="form-edit">
-          <input type="text" class="popup__field popup__field_edit_title" name="input-edit-title" value="Жак-Ив Кусто">
-          <input type="text" class="popup__field popup__field_edit_subtitle" name="input-edit-subtitle" value="Исследователь океана">
+        <form class="popup__form popup__form_edit" name="form_edit" novalidate>
+
+          <input type="text" class="popup__input popup__input_edit_title" name="title" id="title" value="Жак-Ив Кусто" autocomplete="off" required minlength="2" maxlength="40">
+          <span id="title-error" class="popup__error"></span>
+
+          <input type="text" class="popup__input popup__input_edit_subtitle" name="subtitle" id="subtitle" value="Исследователь океана" autocomplete="off" required minlength="2" maxlength="200">
+          <span id="subtitle-error" class="popup__error"></span>
+
           <button class="popup__button" type="submit">Сохранить</button>
           <button type="reset" class="popup__close-button"></button>
+
         </form>
       </div>
     </div>
@@ -50,11 +56,17 @@
     <div class="popup popup_add">
       <div class="popup__container">
         <p class="popup__title">Новое место</p>
-        <form class="popup__form popup__form_add" name="form-add">
-          <input type="text" class="popup__field popup__field_add_title" name="input-add-title" placeholder="Название">
-          <input type="url" class="popup__field popup__field_add_link" name="input-add-link" placeholder="Ссылка на картинку">
-          <button class="popup__button popup__button_add" type="submit">Создать</button>
-          <button type="reset" class="popup__close-button popup__close-button_add"></button>
+        <form class="popup__form popup__form_add" name="form_add" novalidate>
+
+          <input type="text" class="popup__input popup__input_add_title" name="card_title" id="card_title" placeholder="Название" autocomplete="off" required minlength="2" maxlength="30">
+          <span id="card_title-error" class="popup__error"></span>
+
+          <input type="url" class="popup__input popup__input_add_link" name="link" id="link" placeholder="Ссылка на картинку" autocomplete="off" required>
+          <span id="link-error" class="popup__error"></span>
+
+          <button class="popup__button popup__button_add popup__button_disabled" type="submit" disabled>Создать</button>
+          <button type="reset" class="popup__close-button popup__close-button_add" ></button>
+
         </form>
       </div>
     </div>
@@ -82,6 +94,6 @@
 
 <script src="./javascript/validation.js"></script>
 <script src="./javascript/cards.js"></script>
-<script src="./javascript/script.js"></script>
+<script src="./javascript/index.js"></script>
 </body>
 </html>
