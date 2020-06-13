@@ -120,3 +120,22 @@ enableValidation({
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible'
 });
+
+// закрытие на клавишу esc
+function closeByEsc (evt){
+  if (evt.key === 'Escape') {
+    const popupOpened = document.querySelector('.popup_opened');
+    popupOpened.classList.remove('popup_opened');
+  }
+}
+window.addEventListener('keydown', closeByEsc);
+
+// закрыть попапы с формой по оверлею
+const popupOverlay = Array.from(document.querySelectorAll('.popup'));
+popupOverlay.forEach(elem => {
+  elem.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup')) {
+      evt.target.classList.remove('popup_opened');
+    }
+  })
+})
