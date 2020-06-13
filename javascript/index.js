@@ -28,7 +28,7 @@ buttonEdit.addEventListener('click', function() {
 
 function popupClose() {
   popup.classList.toggle('popup_opened');
-};
+}
 buttonClose.addEventListener('click', popupClose);
 
 //добавить данные из инпутов в форму
@@ -37,7 +37,7 @@ function formSubmitHandler(evt) {
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value;
     popupClose();
-};
+}
 formElement.addEventListener('submit', formSubmitHandler);
 
 // собираем карточку и наполняем её данными
@@ -54,12 +54,11 @@ function createCard (name, link) {
   deleteButton.addEventListener('click', () => deleteButton.closest('.element').remove());
 
   // открыть попап с превью фотографии
-  const imageCover = element.querySelector('.element__cover');
-  imageCover.addEventListener('click', function() {
-    const item = imageCover.parentElement;
+  elementCover.addEventListener('click', function() {
+    const item = elementCover.parentElement;
     const title = item.querySelector('.element__title').textContent;
     const imageTitle = document.querySelector('.popup-preview__image');
-    imageTitle.src = imageCover.src;
+    imageTitle.src = elementCover.src;
     imageTitle.setAttribute('alt', title);
     document.querySelector('.popup-preview__caption').textContent = title;
     popupPreview.classList.toggle('popup_opened');
