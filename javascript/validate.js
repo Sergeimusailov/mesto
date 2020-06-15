@@ -5,17 +5,16 @@ function enableValidation(options) {
     inputElements.forEach(input => {
       input.addEventListener('input', e => handleInput(e, options.inputErrorClass)); // вешаем слушатель на инпуты
     });
-
-    const submitButton = formElement.querySelector('.popup__button'); // находим кнопки сабмитов
-    formElement.addEventListener('input', toggleValidButton) // вешаем на форму слушатель
-
     // переключаем состояния кнопок
-    function toggleValidButton() {
-      const isFormValid = formElement.checkValidity();
-      submitButton.disabled = !isFormValid;
-      submitButton.classList.toggle(options.inactiveButtonClass, !isFormValid);
-    }
+    formElement.addEventListener('input', () => toggleValidButton(formElement, options.inactiveButtonClass)) // вешаем на форму слушатель
   })
+}
+
+function toggleValidButton(formElement, inactiveButtonClass) {
+  const submitButton = formElement.querySelector('.popup__button'); // находим кнопки сабмитов
+  const isFormValid = formElement.checkValidity();
+  submitButton.disabled = !isFormValid;
+  submitButton.classList.toggle(inactiveButtonClass, !isFormValid);
 }
 
 // проверяем инпуты на ошибки
@@ -30,4 +29,3 @@ function handleInput(evt, errorClass) {
     error.textContent = input.validationMessage;
   }
 }
-
