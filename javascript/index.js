@@ -14,7 +14,7 @@ const formElement = document.querySelector('.popup__form_edit');
 //добавление карточки
 const buttonAddClose = document.querySelector('.popup__close-button_add');
 const popupAdd = document.querySelector('.popup_add');
-const elementTemplate = document.querySelector('#element-template').content;
+const elementTemplate = document.querySelector('.element-template').content;
 const formAdd = document.querySelector('.popup__form_add');
 
 const popupPreview = document.querySelector('.popup-preview');
