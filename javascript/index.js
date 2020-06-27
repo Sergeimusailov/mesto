@@ -1,3 +1,6 @@
+import number from './Card.js';
+
+
 //редактирование профиля
 const buttonEdit = document.querySelector('.profile__button_edit');
 const buttonClose = document.querySelector('.popup__close-button');
@@ -14,7 +17,7 @@ const formElement = document.querySelector('.popup__form_edit');
 //добавление карточки
 const buttonAddClose = document.querySelector('.popup__close-button_add');
 const popupAdd = document.querySelector('.popup_add');
-const elementTemplate = document.querySelector('#element-template').content;
+// const elementTemplate = document.querySelector('#element-template').content;
 const formAdd = document.querySelector('.popup__form_add');
 
 const popupPreview = document.querySelector('.popup-preview');
@@ -42,8 +45,8 @@ formElement.addEventListener('submit', formSubmitHandler);
 
 // собираем карточку и наполняем её данными
 function createCard (name, link) {
-  const element = elementTemplate.cloneNode(true);
-  const elementCover = element.querySelector('.element__cover');
+  // const element = elementTemplate.cloneNode(true);
+  // const elementCover = element.querySelector('.element__cover');
 
   // кнопка лайка
   const likeButton = element.querySelector('.element__like-button');
