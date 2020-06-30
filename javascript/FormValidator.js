@@ -1,13 +1,24 @@
-export class FormValidator {
-  constructor (options, formClass) {
-    this._options = options;
+export default class FormValidator {
+  constructor (obj, formClass) {
+    this._obj = obj;
     this._formClass = formClass;
-    this._inputs = Array.from(this._formClass.querySelectorAll(options.inputSelector));
-    this._errorSpans = Array.from(this._formClass.querySelectorAll(options.errorSelector));
-    this._button = this._formClass.querySelector(options.buttonSelector);
+    this._inputs = Array.from(this._formClass.querySelectorAll(obj.inputSelector));
+    this._error = Array.from(this._formClass.querySelectorAll(obj.errorSelector));
+    this._button = this._formClass.querySelector(obj.buttonSelector);
   }
 
-  handleFormInput() {
+  enableValidation = (obj) => {
+    const formElements = Array.from(document.querySelectorAll(obj.formSelector)); // создаём массив форм
+    formElements.forEach(formElement => {
+      const inputElements = Array.from(formElement.querySelectorAll(obj.inputSelector)); // создаём массив инпутов
+      inputElements.forEach(input => {
+        input.addEventListener('input', () => this.handleInput()); // вешаем слушатель на инпуты
+      });
+      formElement.addEventListener('input', () => this.toggleValidButton()) // вешаем на форму слушатель
+    })
+  }
+
+  handleInput(evt, errorClass) {
     const input = evt.target;
     const error = document.querySelector(`#${input.id}-error`);
       if (input.checkValidity()) {
@@ -16,6 +27,7 @@ export class FormValidator {
       } else {
         input.classList.add(errorClass);
         error.textContent = input.validationMessage;
+      }
   }
 
   toggleValidButton(formElement, inactiveButtonClass) {
@@ -25,16 +37,7 @@ export class FormValidator {
     submitButton.classList.toggle(inactiveButtonClass, !isFormValid);
   }
 
-}
-
-function enableValidation(options) {
-  const formElements = Array.from(document.querySelectorAll(options.formSelector)); // создаём массив форм
-  formElements.forEach(formElement => {
-    const inputElements = Array.from(formElement.querySelectorAll(options.inputSelector)); // создаём массив инпутов
-    inputElements.forEach(input => {
-      input.addEventListener('input', e => handleInput(e, options.inputErrorClass)); // вешаем слушатель на инпуты
-    });
-    // переключаем состояния кнопок
-    formElement.addEventListener('input', () => toggleValidButton(formElement, options.inactiveButtonClass)) // вешаем на форму слушатель
-  })
+  setEventListener() {
+    formElement.addEventListener('input', () => toggleValidButton(formElement, obj.inactiveButtonClass));
+  }
 }

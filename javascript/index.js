@@ -1,4 +1,4 @@
-// import FormValidator from './FormValidator.js';
+import FormValidator from './FormValidator.js';
 import Card from './Card.js';
 import {initialCards} from './cards.js'; //импортируем массив карточек
 
@@ -18,6 +18,18 @@ const formAdd = document.querySelector('.popup__form_add');
 
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
+
+const obj = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+};
+
+const validateProfile = new FormValidator(obj, document.forms.form_edit);
+validateProfile.enableValidation(obj, document.forms.form_edit);
 
 //добавить карточки
 function addCard(name, link) {
@@ -96,12 +108,3 @@ popupOverlay.forEach(elem => {
     }
   })
 })
-
-enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-});
