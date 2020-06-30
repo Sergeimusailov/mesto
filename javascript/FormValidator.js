@@ -12,9 +12,9 @@ export default class FormValidator {
     formElements.forEach(formElement => {
       const inputElements = Array.from(formElement.querySelectorAll(obj.inputSelector)); // создаём массив инпутов
       inputElements.forEach(input => {
-        input.addEventListener('input', () => this.handleInput()); // вешаем слушатель на инпуты
+        input.addEventListener('input', (e) => this.handleInput(e, this._obj.errorClass)); // вешаем слушатель на инпуты
       });
-      formElement.addEventListener('input', () => this.toggleValidButton()) // вешаем на форму слушатель
+      formElement.addEventListener('input', (e) => this.toggleValidButton(formElement, this._obj.inactiveButtonClass)) // вешаем на форму слушатель
     })
   }
 
