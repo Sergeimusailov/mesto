@@ -7,10 +7,10 @@ export default class FormValidator {
     this._button = this._formClass.querySelector(obj.buttonSelector);
   }
 
-  enableValidation = (obj) => {
-    const formElements = Array.from(document.querySelectorAll(obj.formSelector)); // создаём массив форм
+  enableValidation = () => {
+    const formElements = Array.from(document.querySelectorAll(this._obj.formSelector)); // создаём массив форм
     formElements.forEach(formElement => {
-      const inputElements = Array.from(formElement.querySelectorAll(obj.inputSelector)); // создаём массив инпутов
+      const inputElements = Array.from(formElement.querySelectorAll(this._obj.inputSelector)); // создаём массив инпутов
       inputElements.forEach(input => {
         input.addEventListener('input', (e) => this.handleInput(e, this._obj.errorClass)); // вешаем слушатель на инпуты
       });
