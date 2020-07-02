@@ -8,14 +8,7 @@ export default class FormValidator {
   }
 
   enableValidation = () => {
-    const formElements = Array.from(document.querySelectorAll(this._obj.formSelector)); // создаём массив форм
-    formElements.forEach(formElement => {
-      const inputElements = Array.from(formElement.querySelectorAll(this._obj.inputSelector)); // создаём массив инпутов
-      inputElements.forEach(input => {
-        input.addEventListener('input', (e) => this.handleInput(e, this._obj.errorClass)); // вешаем слушатель на инпуты
-      });
-      formElement.addEventListener('input', (e) => this.toggleValidButton(formElement, this._obj.inactiveButtonClass)) // вешаем на форму слушатель
-    })
+    this._setEventListener(this._formClass);
   }
 
   handleInput(evt, errorClass) {
@@ -37,7 +30,14 @@ export default class FormValidator {
     submitButton.classList.toggle(inactiveButtonClass, !isFormValid);
   }
 
-  setEventListener() {
-    formElement.addEventListener('input', () => toggleValidButton(formElement, obj.inactiveButtonClass));
+  _setEventListener() {
+    const formElements = Array.from(document.querySelectorAll(this._obj.formSelector)); // создаём массив форм
+    formElements.forEach(formElement => {
+      const inputElements = Array.from(formElement.querySelectorAll(this._obj.inputSelector)); // создаём массив инпутов
+      inputElements.forEach(input => {
+        input.addEventListener('input', (e) => this.handleInput(e, this._obj.errorClass)); // вешаем слушатель на инпуты
+      });
+      formElement.addEventListener('input', (e) => this.toggleValidButton(formElement, this._obj.inactiveButtonClass)) // вешаем на форму слушатель
+    })
   }
 }
