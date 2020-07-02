@@ -1,12 +1,13 @@
 export default class Card {
-  constructor(name, link) {
+  constructor(name, link, cardTemplate) {
     this._name = name;
     this._link = link;
+    this._cardTemplate = cardTemplate;
   }
 
   _getTemplate() { //находим темплейт и копируем карточку
     const cardElement = document
-    .querySelector('.element-template')
+    .querySelector(`.${this._cardTemplate}`)
     .content
     .querySelector('.element')
     .cloneNode(true);
@@ -34,6 +35,7 @@ export default class Card {
 
   _deleteCard() {
     this._element.remove();
+    this._element = null;
   }
 
   _openPopupPrewiev() {

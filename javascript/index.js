@@ -33,7 +33,7 @@ validateProfile.enableValidation(obj, document.forms.form_edit);
 
 //добавить карточки
 function addCard(name, link) {
-  const card = new Card(name, link)
+  const card = new Card(name, link, 'element-template');
   const cardElement = card.generateCard();
   document.querySelector('.elements').prepend(cardElement);
 }
